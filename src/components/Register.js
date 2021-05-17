@@ -20,11 +20,11 @@ export default function Register (props) {
 
     return (
         <div className="register">
-            <h2 class="register__title">Регистрация</h2>
+            <h2 className="register__title">Регистрация</h2>
             <form className="register__form " name="register-form" onSubmit={handleSubmit}>
-                <input type="email" className="register__input" placeholder="Email" value={email} onChange={handleEmailChange} required />
-                <input  type="password" className="register__input register__input_password" placeholder="Пароль" value={password} onChange={handlePasswordChange} required />
-                <button class="register__button" type="submit">Зарегистрироваться</button>
+                <input type="email" className="register__input" autoComplete="email" placeholder="Email" value={email} onChange={handleEmailChange} required />
+                <input  type="password" className="register__input register__input_password" placeholder="Пароль" autoComplete="new-password" value={password} onChange={handlePasswordChange} required />
+                <button className="register__button" type="submit">Зарегистрироваться</button>
                 <Link className="register__login " to="/singin">Уже зарегистрированы? Войти</Link>
             </form>
         </div>

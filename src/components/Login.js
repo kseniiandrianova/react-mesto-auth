@@ -21,10 +21,10 @@ export default function Login (props){
     return (
         <div className="register">
             <form className="register__form " name="register-form" onSubmit={handleSubmit}>
-                <h2 class="register__title">Вход</h2>
-                <input type="email" className="register__input" placeholder="Email" value={email} onChange={handleEmailChange} required />
-                <input  type="password" className="register__input register__input_password" placeholder="Пароль" value={password} onChange={handlePasswordChange} required />
-                <button class="register__button" type="submit">Войти</button>
+                <h2 className="register__title">Вход</h2>
+                <input type="email" className="register__input" placeholder="Email" autoComplete="email" value={email} onChange={handleEmailChange} required />
+                <input  type="password" className="register__input register__input_password" autoComplete="new-password" placeholder="Пароль" value={password} onChange={handlePasswordChange} required />
+                <button className="register__button" type="submit">Войти</button>
             </form>
         </div>
     )

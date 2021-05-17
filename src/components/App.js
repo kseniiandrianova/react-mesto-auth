@@ -179,7 +179,6 @@ function App() {
     const handleLogSubmit = ( {email, password}) => {
       return auth.authorize({email, password})
       .then((res) => {
-        console.log(res);
         localStorage.setItem('jwt', res.token);
           setLoggedIn(true);
           setInitialData({

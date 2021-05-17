@@ -10,18 +10,18 @@ export default function Header({ onSignOut, email, isOpen, onMenu, isMenuIcon, i
                 <img className="logo" src={logo} alt="Mesto" />
                 <div className="header__container">
                 <Route exact path="/main">
-                <dev className={`header__popup ${isOpen}`}>
+                <div className={`header__popup ${isOpen}`}>
                 <p className="header__email">{email} </p>
                 <Link to="/signin" className="header__link" onClick={onSignOut}>Выйти</Link>
-                </dev>
-                <dev className="header__menu-element">
+                </div>
+                <div className="header__menu-element">
                   <div className='header__navbar'>
                   <p className='header__popup-email'>{email}</p>
                   <button type='button' onClick={onMenu} className={`header__button-menu ${isMenuIcon}`}><img src={menu} alt='Меню' /></button>
                   <button type='button' onClick={onClose} className={`header__button-close ${isMenuCloseIcon}`}><img src={close} alt='Крестик' /></button>
                   <button onClick={onSignOut} className="header__button">Выход</button>
                   </div>
-                </dev>
+                </div>
                     
                 </Route>
                 <Route exact path="/signin">

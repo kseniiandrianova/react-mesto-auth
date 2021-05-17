@@ -1,5 +1,4 @@
 import React from 'react';
-import PopupWithForm from './PopupWithForm';
 import iconCorrect from '../images/icon-correct.svg';
 import iconUncorrect from '../images/icon-uncorrect.svg';
 

@@ -25,7 +25,7 @@ export default function Register (props) {
                 <input type="email" className="register__input" placeholder="Email" value={email} onChange={handleEmailChange} required />
                 <input  type="password" className="register__input register__input_password" placeholder="Пароль" value={password} onChange={handlePasswordChange} required />
                 <button class="register__button" type="submit">Зарегистрироваться</button>
-                <Link className="register__login " to="/sing-in">Уже зарегистрированы? Войти</Link>
+                <Link className="register__login " to="/singin">Уже зарегистрированы? Войти</Link>
             </form>
         </div>
     )

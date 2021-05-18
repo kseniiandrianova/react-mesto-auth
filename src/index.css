@@ -51,7 +51,8 @@
 @import url("./blocks/header/__menu-element/header__menu-element.css");
 @import url("./blocks/header/__button/header__button.css");
 @import url("./blocks/header/__popup-email/header__popup-email.css");
-
+@import url("./blocks/header/__email/_menu/header__email_menu.css");
+@import url("./blocks/header/__link/_menu/header__link_menu.css");
 
 
 

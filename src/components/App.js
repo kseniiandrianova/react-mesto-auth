@@ -150,11 +150,10 @@ function App() {
     }
     const handleCheckToken = () => {
       const jwt = localStorage.getItem('token');
-      let jwtParse = (JSON.parse(jwt)).token;
-      if (!jwtParse) {
+      if (!jwt) {
         return;
       }
-        auth.getContent(jwtParse)
+        auth.getContent(jwt)
         .then(() => {
             setLoggedIn(true);
           })
@@ -189,6 +188,9 @@ function App() {
           handleCheckToken();
           history.push('/main');
         })
+        .catch((err) => {
+          console.log(err);
+        });
     }
 
     

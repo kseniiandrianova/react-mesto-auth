@@ -1,5 +1,5 @@
 .header__email{
-  margin-top: 51px;
+  margin-top: 18px;;
   font-family: Inter;
   font-style: normal;
   font-weight: 400;
@@ -10,6 +10,7 @@
   
   @media screen and (max-width: 768px) {
     .header__email {
+      margin-top: 40px;
       
     }
   }

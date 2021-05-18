@@ -11,7 +11,7 @@ export default function infoTooltip(props) {
          <div className="popup__container">
             <form className="popup__form" name="infoTooltip" onSubmit={props.onSubmit}>
                 <button className="popup__button-close popup__button-edit-close" type="reset" onClick={props.onClose}></button>
-                <img className="popup__icon" src={props.loggedIn ? iconCorrect :  iconUncorrect} alt="Статус регистрации" />
+                <img className="popup__icon" src={props.loggedIn ? iconUncorrect  : iconCorrect } alt="Статус регистрации" />
                 <h2 className="popup__title_info">{props.loggedIn ? 'Вы успешно зарегистрировались!' : 'Что-то пошло не так! Попробуйте еще раз.'}</h2>
               {props.children}
             </form>

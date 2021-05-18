@@ -22,8 +22,8 @@ export default function Login (props){
         <div className="register">
             <form className="register__form " name="register-form" onSubmit={handleSubmit}>
                 <h2 className="register__title">Вход</h2>
-                <input type="email" className="register__input" placeholder="Email" autoComplete="email" value={email} onChange={handleEmailChange} required />
-                <input  type="password" className="register__input register__input_password" autoComplete="new-password" placeholder="Пароль" value={password} onChange={handlePasswordChange} required />
+                <input id="email" name="email" type="email" className="register__input" placeholder="Email" autoComplete="email" value={email} onChange={handleEmailChange} required />
+                <input  id="password" name="password" type="password" className="register__input register__input_password" autoComplete="new-password" placeholder="Пароль" value={password} onChange={handlePasswordChange} required />
                 <button className="register__button" type="submit">Войти</button>
             </form>
         </div>

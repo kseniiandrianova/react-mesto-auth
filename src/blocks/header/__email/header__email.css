@@ -1,22 +1,15 @@
-.header__popup-email{
-  
-    display: none;
+.header__email{
+  margin-top: 51px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  list-style-type: none;
   }
   
   @media screen and (max-width: 768px) {
-    .header__popup-email {
-      display: flex;
-      height: 22px;
-      font-family: 'Inter', ‘Arial’, sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 22px;
-      margin: auto;
-      padding: 0%;
-      text-align: right;
-      color: #FFFFFF;
-      margin-top: 40px;
-      margin-bottom: 18px;
+    .header__email {
+      
     }
   }

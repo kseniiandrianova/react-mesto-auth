@@ -27,6 +27,7 @@ function App() {
     const [cards, setCards] = React.useState([]);
     const [loggedIn, setLoggedIn] = React.useState(false);
     const [isInfoTooltipOpen, setInfoTooltipOpen] = React.useState(false);
+    const [isInfoTooltiNegativeOpen, setInfoTooltiNegativeOpen] = React.useState(false);
     const [initialData, setInitialData] = React.useState({
       password: '',
       email: ''
@@ -54,7 +55,9 @@ function App() {
           })
   }, [])
 
-  
+  React.useEffect(() => {
+    handleCheckToken();
+  }, [])
 
   function handleMenuClick() {
     setMenuOpened(true);
@@ -81,6 +84,7 @@ function App() {
         setAddPlacePopupOpen(false);
         setSelectedCard(null);
         setInfoTooltipOpen(false);
+        setInfoTooltiNegativeOpen(false);
         setMenuOpened(false);
         setMenuIconOpen(false);
         setMenuCloseIconOpen(false);
@@ -149,28 +153,37 @@ function App() {
       })
     }
     const handleCheckToken = () => {
-      const jwt = localStorage.getItem('token');
-      if (!jwt) {
-        return;
-      }
+      const jwt = localStorage.getItem('jwt');
+      if (jwt) {
         auth.getContent(jwt)
-        .then(() => {
+        .then((res) => {
+          if(res) {
+            const email = res.data.email;
             setLoggedIn(true);
+            setInitialData({
+              email
+           });
+            history.push('/main');
+          }
+            
           })
         .catch((err) => {
           console.log(err);
         });
+      }
     }
 
     const handleRegSubmit = ( email, password ) => {
       return auth.register(email, password)
       .then(() => {
           setInfoTooltipOpen(true);
+          setLoggedIn(true);
           history.push('/signin');
       })
       .catch((err) => {
         console.log(err);
-        setInfoTooltipOpen(true)
+        setInfoTooltiNegativeOpen(true);
+        setLoggedIn(false);
 
       })
     }
@@ -218,7 +231,7 @@ function App() {
             isMenuCloseIcon={isMenuCloseIcon ? 'header_opened' : 'header_closed'}
             />
             <Switch>
-            <ProtectedRoute path="/main"
+            <ProtectedRoute exact path="/main"
         component = {Main}
         loggedIn = {loggedIn}
         cards = {cards}
@@ -265,9 +278,9 @@ function App() {
                 </div>
               </section>
             </PopupWithForm>
-            <InfoTooltip 
+            <InfoTooltip
             loggedIn={isInfoTooltipOpen}
-            isOpen={isInfoTooltipOpen && 'popup_opened'}
+            isOpen={loggedIn ? (isInfoTooltipOpen && 'popup_opened') : (isInfoTooltiNegativeOpen && 'popup_opened')}
             onClose={closeAllPopups}
           />
             <Footer />

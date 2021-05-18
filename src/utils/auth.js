@@ -2,7 +2,6 @@ export const BASE_URL = 'https://auth.nomoreparties.co';
 
  function handleResponse(res) {
   if (!res.ok ) {
-      console.log(res);
       return Promise.reject(console.log(`Что-то пошло не так. Ошибка ${res.status}`));
       
   }
@@ -44,7 +43,6 @@ export const authorize = ( data ) => {
 };
 
 export const getContent = (token) => {
-  console.log(token);
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
